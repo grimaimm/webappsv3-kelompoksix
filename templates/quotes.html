@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quotes - Kelompok 6</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/saran.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.2/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container-navbar">
+    <nav class="navbar justify-content-center fixed-top">
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">
+            <span><i class="bi bi-house-door-fill"></i></span>
+            <span>Home</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/members">
+            <span><i class="bi bi-people-fill"></i></span>
+            <span>Member</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">
+            <span><i class="bi bi-person-lines-fill"></i></span>
+            <span>Contact</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/quotes">
+            <span><i class="bi bi-chat-quote"></i></span>
+            <span>Quotes</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+
+  <div class="saranContent">
+    <main class="contentForm">
+      <div class="card p-4">
+        <form class="row g-3 needs-validation" action="{{ url_for('quotes') }}" method="POST" novalidate>
+          <div class="col-lg-12">
+              <label for="validationCustom01" class="form-label"><b>YOUR NAME</b></label>
+              <input type="text" name="nama" class="form-control" id="validationCustom01" placeholder="Input your name puh" required>
+              <div class="invalid-feedback">
+                  Masukan namamu dulu puh 
+              </div>
+              <div class="valid-feedback">
+                  Mantap puh sepuh
+              </div>
+          </div>
+          <div class="mb-2">
+              <label for="validationTextarea" class="form-label"><b>QUOTES</b></label>
+              <textarea class="form-control" name="kata" id="validationTextarea" placeholder="Input your quotes puh" required></textarea>
+              <div class="invalid-feedback">
+                  Masukan kata-katanya dulu puh 
+              </div>
+              <div class="valid-feedback">
+                  Mantap puh sepuh
+              </div>
+          </div>
+      
+          <div class="col-12">
+              <button type="submit" class="btn btn-dark submit">
+                  <i class="fas fa-send"></i> Uploud
+              </button>
+          </div>
+      </form>
+      
+      </div>
+    </main>  
+  </div>
+
+  <div class="contentSaran">
+    <div class="container">
+      <main class="contentsaranCard">
+        <div class="judulHal text-center pt-5 my-4">
+          <h3> QUOTES </h3>
+        </div>
+        <div class="row">
+          {% for row in quotes %}
+          <div class="col-sm-4 mb-2 mt-2">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ row[0] }}</h5>
+                <p class="card-text">{{ row[1] }}</p>
+                <a href="/quotes/delete/{{ row[1] }}" type="button" class="btn btn-sm btn-dark delete"
+                  onclick="return confirm('Apakah anda yakin ingin menghapus Quotes ini ?')">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </main>  
+    </div>
+  </div>
+
+  <div class="container-footer">
+    <footer class="footer mt-auto py-3 fixed-bottom">
+      <div class="container">
+        <span class="text-center justify-content-center d-flex">&copykelompoksix</span>
+      </div>
+    </footer>
+  </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+</body>
+</html>

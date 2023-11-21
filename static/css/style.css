@@ -1,0 +1,247 @@
+*,html,body {
+  padding: 0;
+  margin: 0;
+  font-family: "Jost", sans-serif;
+}
+
+@keyframes glow {
+  0% {
+    color: red;
+    text-shadow: 0 0 10px red, 0 0 10px #000000, 0 0 20px red,
+      0 0 30px #000000, 0 0 40px red, 0 0 50px #000000;
+  }
+  25% {
+    color: yellow;
+    text-shadow: 0 0 10px yellow, 0 0 10px #000000, 0 0 20px yellow,
+      0 0 30px #000000, 0 0 40px yellow, 0 0 50px #000000;
+  }
+  50% {
+    color: rgb(0, 255, 0);
+    text-shadow: 0 0 10px rgb(0, 255, 0), 0 0 10px #000000, 0 0 20px rgb(0, 255, 0),
+      0 0 30px #000000, 0 0 40px rgb(0, 255, 0), 0 0 50px #000000;
+  }
+  75% {
+    color: blue;
+    text-shadow: 0 0 10px blue, 0 0 10px #000000, 0 0 20px blue,
+      0 0 30px #000000, 0 0 40px blue, 0 0 50px #000000;
+  }
+  100% {
+    color: red;
+    text-shadow: 0 0 10px red, 0 0 10px #000000, 0 0 20px red,
+      0 0 30px #000000, 0 0 40px red, 0 0 50px #000000;
+  }
+}
+
+/* NAVBAR */
+.container-navbar {
+  border: none;
+}
+.container-navbar .navbar {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.container-navbar .navbar ul {
+  border: none;
+}
+.container-navbar .navbar ul li {
+  border: none;
+  margin: 0 0.5rem 0 0.5rem;
+  animation: none;
+}
+.container-navbar .navbar ul li a {
+  padding: 8px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #7f8890;
+  border-bottom: .2rem solid transparent;
+}
+.container-navbar .navbar ul li a.active,
+.container-navbar .navbar ul li a:active,
+.container-navbar .navbar ul li a:hover,
+.container-navbar .navbar ul li a:focus {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* MAIN CONTENT */
+.selamatDatang {
+  font-family: "Jost", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-image: url("/static/img/bg-5.png");
+}
+.selamatDatang .content {
+  border: none;
+}
+.selamatDatang .content h3 {
+  border: none;
+  font-size: clamp(28px, 7.5vmin, 52px);
+  font-weight: 1000;
+  line-height: 1.05;
+  margin: 10px;
+  color: #7f8890;
+}
+.selamatDatang .content h4 {
+  border: none;
+  font-size: clamp(26px, 7.5vmin, 50px);
+  font-weight: 1000;
+  line-height: 1.05;
+  margin: 10px;
+  color: #7f8890;
+}
+
+/* MEMBER */
+.selamatDatang .content .member {
+  text-align: center;
+}
+
+.selamatDatang .content .member {
+  border: none;
+  list-style: none;
+  padding: 0.5rem;
+  /* font-size: clamp(20px, 8vmin, 25px);
+  font-weight: 500; */
+}
+.selamatDatang .content .member .namaAnggota {
+  font-size: clamp(18px, 7vmin, 22px);
+  font-weight: 500;
+}
+.selamatDatang .content .member li {
+  border: none;
+  text-align: center;
+}
+.selamatDatang .content .member .card {
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  background-color: #00000080;
+  border-radius: 20px;
+  color: #7f8890;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.selamatDatang .content .member .card.active,
+.selamatDatang .content .member .card:active,
+.selamatDatang .content .member .card:hover,
+.selamatDatang .content .member .card:focus {
+  color: red;
+  border-bottom-color: #fff;
+  animation: glow 4s infinite;
+  transform: scale(1.1);
+}
+.card-details {
+  display: none;
+  font-size: 15px;
+}
+.card.active .card-details {
+  display: grid;
+}
+
+
+/* FOOTER */
+.container-footer {
+  border: none;
+}
+.container-footer .footer {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #7f8890;
+}
+
+
+/* SARAN */
+.saranContent {
+  font-family: "Jost", sans-serif;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  /* text-align: center; */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-image: url("/static/img/bg-5.png");
+}
+.saranContent .content {
+  border: none;
+}
+
+.saranContent .card {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  max-height: 500px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: #9d9d9d0b;
+  border-radius: 20px;
+  color: white;
+}
+
+.saranContent .card input {
+  font-size: 18px;
+}
+.saranContent .card .invalid-feedback {
+  font-size: 16px;
+}
+.saranContent .card .valid-feedback {
+  font-size: 16px;
+}
+
+
+.contentSaran {
+  font-family: "Jost", sans-serif;
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  /* text-align: center; */
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-image: url("/static/img/bg-5.png");
+}
+
+.contentSaran .contentsaranCard h3 {
+  border: none;
+  font-size: clamp(26px, 7.5vmin, 50px);
+  font-weight: 1000;
+  line-height: 1.05;
+  color: #7f8890;
+}
+.contentSaran .card {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  max-height: 500px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  background-color: #9d9d9d0b;
+  border-radius: 10px;
+  color: white;
+}
